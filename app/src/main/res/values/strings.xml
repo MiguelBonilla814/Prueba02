@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Doodlz</string>
+    <string name="Color">Color</string>
+    <string name="Brush">Brush</string>
+    <string name="Clear">Limpiar</string>
+    <string name="Save">Guardar</string>
+    <string name="Print">Imprimir</string>
+    <string name="Load">Cargar</string>
+    <string name="label_red">Rojo</string>
+    <string name="label_alpha">Alpha</string>
+    <string name="label_green">Verde</string>
+    <string name="label_blue">Azul</string>
+    <string name="set_color">Asignar Color</string>
+    <string name="set_line_width">Asignar Ancho</string>
+    <string name="titulo_nombre">Nombre: </string>
+    <string name="hint_nombre">Ingrese el nombre</string>
+    <string name="titulo_contraseña">Contraseña:</string>
+    <string name="hint_contraseña">Ingrese la contraseña</string>
+    <string name="button_ingresar">Iniciar Sesión</string>
+    <string name="usuario1">Nombre: miguel, Contraseña: miguel</string>
+    <string name="usuario2">Nombre: enrique, Contraseña: enrique</string>
+</resources>

@@ -32,12 +32,14 @@ public class LoginActivity extends AppCompatActivity {
 
         if(nombreEditText.equals("miguel") && passwordEditText.equals("miguel")){
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("nombre", nombreEditText);
             startActivity(intent);
             Toast.makeText(this, "Bienvenido, Miguel!" , Toast.LENGTH_SHORT).show();
         }
 
         if(nombreEditText.equals("enrique") && passwordEditText.equals("enrique")){
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("nombre", nombreEditText);
             startActivity(intent);
             Toast.makeText(this, "Bienvenido, Enrique!" , Toast.LENGTH_SHORT).show();
         }

@@ -33,8 +33,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.print.PrintHelper;
 
+import com.bumptech.glide.Glide;
 import com.teamproject.doodlz.drawing.DrawingView;
 
+import java.io.File;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private SeekBar greenSeekBar;
     private SeekBar blueSeekBar;
     private View colorView;
+    String nombre;
 
     private DrawingView drawingView;
 
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         drawingView = new DrawingView(this);
         setContentView(drawingView);
+        nombre = getIntent().getExtras().getString("nombre");
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Objects.requireNonNull(mSensorManager).registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
@@ -237,6 +241,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -286,6 +291,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                         drawingView.loadBitmap(bitmap, rotation);
+
+                        if(nombre.equals("miguel")){
+                            File imgFile = new  File("/storage/emulated/0/Download/prueba.jpg");
+                            Uri imageUri = Uri.fromFile(imgFile);
+                            Glide.with(this).load(imageUri).into(widthImageView);
+                        }
                     } catch (Exception exception) {
                         System.out.println(exception);
                     }
